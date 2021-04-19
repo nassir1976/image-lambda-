@@ -22,3 +22,25 @@ npm init -y
 npm install dependancies 
 eb init / initialize elasticbeanstalk .
 zip -r lambda-function.zip (zip a lambda function)
+
+## Solution
+
+Here is the description of workflow
+
+- Create two folders in your S3 bucket : original & resized.
+- Create a lambda function and add this lambda function to S3 trigger, so that whenever any image will be uploaded to S3, this trigger will be executed and lambda function will run.
+- Upload images from you client side to original folder of S3 Bucket.
+- Once image is uploaded lambda will run to do the processing on image (Re-size/optimize ) and will save this processed(re-sized) image to re-sized folder of the bucket .
+- Keep polling the resized folder from client side to get resized image. (Remember we upload the original image to “original” folder & get the resized image from “resized” folder)
+<!-- Embedded whiteboard image -->
+![WhiteBoard](./assets/UML.jpg)
+
+
+### Code
+
+- There are two ways to write code for lambda :
+
+- Inline Code .
+- Write on local and upload source code in .zip file with all dependencies.
+
+source : https://www.linkedin.com/pulse/re-sizing-optimizing-images-go-using-amazon-lambda-s3-chauhan/
