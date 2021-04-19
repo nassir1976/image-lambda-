@@ -21,4 +21,4 @@
 npm init -y 
 npm install dependancies 
 eb init / initialize elasticbeanstalk .
-zip -r lamda-function.zip (zip a lambda function)
+zip -r lambda-function.zip (zip a lambda function)
